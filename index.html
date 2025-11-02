@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Mariia Novoselia] - Journalism Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #ccc;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #1a1a1a;
+            border-bottom: 3px solid #1a1a1a;
+            padding-bottom: 0.5rem;
+            font-weight: 400;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            margin-top: 3rem;
+            margin-bottom: 1.5rem;
+            color: #1a1a1a;
+            font-weight: 400;
+        }
+
+        .about-content {
+            background-color: #fff;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .about-content p {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background-color: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #1a1a1a;
+        }
+
+        .skill-category ul {
+            list-style: none;
+        }
+
+        .skill-category li {
+            padding: 0.3rem 0;
+            color: #555;
+        }
+
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .work-item {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .work-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+        }
+
+        .work-item-image {
+            width: 100%;
+            height: 250px;
+            background-color: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #999;
+            font-style: italic;
+            overflow: hidden;
+        }
+
+        .work-item-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-embed {
+            width: 100%;
+            height: 250px;
+            background-color: #000;
+        }
+
+        .video-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .work-item-content {
+            padding: 1.5rem;
+        }
+
+        .work-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #1a1a1a;
+        }
+
+        .work-item .tools {
+            color: #666;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            font-style: italic;
+        }
+
+        .work-item p {
+            color: #555;
+            margin-bottom: 1rem;
+        }
+
+        .work-item a {
+            display: inline-block;
+            color: #1a1a1a;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 2px solid #1a1a1a;
+            transition: all 0.3s ease;
+        }
+
+        .work-item a:hover {
+            color: #666;
+            border-bottom-color: #666;
+        }
+
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2rem;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mariia Novoselia</h1>
+        <p>Graphics Reporter & Data Journalist</p>
+    </header>
+
+    <div class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I'm a graphics reporter and data journalist pursuing a Master's degree in investigative and data journalism. I specialize in creating compelling visual narratives that make complex information accessible and engaging.</p>
+                <p>My work combines technical skills in data analysis (R programming), design (Adobe Creative Suite), and animation to tell stories that matter. I'm passionate about using visual journalism to inform communities and hold power accountable.</p>
+                <p>Currently working as a graphics reporter, I pitch and produce maps, charts, explainers, and illustrations while collaborating with reporters and editors on data-driven investigations.</p>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <h2>Portfolio</h2>
+
+            <h3>Animation & Motion Graphics</h3>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/cancer_pest.png" alt="Juke Vox logo" />
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Cancer Rates and Pesticide Use in Missouri</h4>
+                        <p class="tools">After Effects, Illustrator</p>
+                        <p>Analyzed datasets on cancer incidence and pesticide exposure using R, then created an animated explainer video that distilled complex findings into accessible visual narratives.</p>
+                        <a href="https://youtu.be/39N4yt8MsSw?si=YsSXW8eKaC_ldPVZ" target="_blank">Watch Video →</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/juke_vox.png" alt="Juke Vox logo" />
+                        </div>
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Vox Magazine Logo Animation</h4>
+                        <p class="tools">After Effects, Illustrator</p>
+                        <p>Designed and animated logo for Vox Magazine, part of the Missouri News Network. Created dynamic motion graphics to enhance brand identity.</p>
+                        <a href="https://youtube.com/shorts/YjLELMgideI?si=LrnM-8odleXSy46_" target="_blank">Watch Video →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Interactive Graphics & Web Projects</h3>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/billboard.png" alt="Billboard Hot 100 Interactive" />
+                        <!-- REPLACE images/billboard-hot-100.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Billboard Hot 100: 60+ Years of Chart History</h4>
+                        <p class="tools">R, Flourish</p>
+                        <p>Interactive data visualization showing 10 songs with the highest number of appearances on the Billboard Hot 100 chart between 1958 and 2025. Analyzed data in R and created interactive exploration tool.</p>
+                        <a href="https://public.flourish.studio/visualisation/25170417/" target="_blank">View Interactive →</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/pheasants.png" alt="Ring-Necked Pheasants News Game" />
+                        <!-- REPLACE images/pheasant-game.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Ring-Necked Pheasants Interactive Game</h4>
+                        <p class="tools">Custom Illustrations, Web Development</p>
+                        <p>Interactive news experience exploring ring-necked pheasants in South Dakota. Created three custom illustrations and designed user interaction flow to engage readers with wildlife conservation.</p>
+                        <a href="https://view.genially.com/68ee92f18e3521b26124f9eb/interactive-content-save-the-pheasant" target="_blank">Play Game →</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/N_10292025shutdown.png" alt="Missouri SNAP Participation Map" />
+                        <!-- REPLACE images/snap-map-missouri.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Missouri SNAP Participation by County</h4>
+                        <p class="tools">Datawrapper</p>
+                        <p>Interactive county-level map visualizing SNAP participation rates across Missouri, revealing geographic disparities in food security.</p>
+                        <a href="https://www.columbiamissourian.com/visuals/graphics/households-across-missouri-receive-snap-benefits/html_d4b5a6ef-6879-4628-aef0-6cc607b091ba.html" target="_blank">View Map →</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/wnv_cases.png" alt="South Dakota West Nile Virus Map" />
+                        <!-- REPLACE images/west-nile-sd.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>West Nile Virus Cases in South Dakota</h4>
+                        <p class="tools">Flourish</p>
+                        <p>Interactive map and data visualization for investigative story that uncovered misattributed West Nile virus cases. Story revealed a county's second-highest U.S. ranking resulted from treating neighboring county patients.</p>
+                        <a href="https://www.sdnewswatch.org/mosquito-west-nile-virus-south-dakota-rankings/" target="_blank">Read Full Story →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Comprehensive Graphics Packages</h3>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/dams.png" alt="Give a Dam Story Graphics" />
+                        <!-- REPLACE images/dams-story.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Give a Dam: Experts Share Dam Basics, Concerns</h4>
+                        <p class="tools">Multiple Graphics Package</p>
+                        <p>Graphics-heavy story featuring 4+ visualizations explaining dam infrastructure, safety concerns, and environmental impacts in Missouri. Created comprehensive graphics package supporting long-form environmental journalism.</p>
+                        <a href="https://public.flourish.studio/story/3415897/" target="_blank">Read Story →</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Charts & Data Visualizations</h3>
+            <div class="work-grid">
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/harrisburg_pop.png" alt="Harrisburg Population Chart" />
+                        <!-- REPLACE images/harrisburg-population.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Harrisburg Population and School District Enrollment (2000-2023)</h4>
+                        <p class="tools">Published Line Chart</p>
+                        <p>Line chart visualizing 23 years of population and school enrollment trends in Harrisburg, revealing demographic shifts and educational capacity changes over time.</p>
+                        <a href="https://www.sdnewswatch.org/south-dakotan-population-harrisburg-tea-box-elder-sd/" target="_blank">View in Story →</a>
+                    </div>
+                </div>
+
+                <div class="work-item">
+                    <div class="work-item-image">
+                        <img src="images/sd_origin.png" alt="Immigrant Origins Chart" />
+                        <!-- REPLACE images/immigrants-sd.png with your actual image file -->
+                    </div>
+                    <div class="work-item-content">
+                        <h4>Origin of Immigrants in South Dakota by Continent</h4>
+                        <p class="tools">Published Data Visualization</p>
+                        <p>Chart showing geographic origins of immigrant populations in South Dakota, supporting feature story on refugee resettlement and immigration patterns that resonated strongly with community.</p>
+                        <a href="https://www.sdnewswatch.org/south-dakota-immigration-refugees-lutheran-social-services-population/" target="_blank">View in Story →</a>
+                    </div>
+                </div>
+
+                
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Design & Animation</h4>
+                    <ul>
+                        <li>Adobe Illustrator</li>
+                        <li>Adobe After Effects</li>
+                        <li>Adobe Photoshop</li>
+                        <li>Adobe InDesign</li>
+                        <li>Canva</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Data & Programming</h4>
+                    <ul>
+                        <li>R (data analysis, ggplot2)</li>
+                        <li>Statistical visualization</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Data visualization</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Visualization Tools</h4>
+                    <ul>
+                        <li>Datawrapper</li>
+                        <li>Flourish</li>
+                        <li>Excel</li>
+                        <li>Interactive graphics</li>
+                        <li>Maps & cartography</li>
+                    </ul>
+                </div>
+
+                <div class="skill-category">
+                    <h4>Multimedia & Languages</h4>
+                    <ul>
+                        <li>Canon photography</li>
+                        <li>Mobile videography</li>
+                        <li>Ukrainian (Proficient)</li>
+                        <li>Spanish (Conversational)</li>
+                        <li>German (Conversational)</li>
+                        <li>ASL (Intermediate)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 [Your Name]. All rights reserved.</p>
+        <p>Built with HTML & CSS</p>
+    </footer>
+</body>
+</html>
