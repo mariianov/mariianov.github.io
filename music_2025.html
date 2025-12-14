@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music of 2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(180deg, #0a0e27 0%, #1a1a3e 50%, #2d1b4e 100%);
+            color: #fff;
+        }
+
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        canvas {
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Landing Page */
+        .landing-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 20px;
+        }
+
+        .landing-content {
+            max-width: 900px;
+            width: 100%;
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+
+        .landing-content h1 {
+            font-size: 4.5em;
+            margin-bottom: 30px;
+            font-weight: 700;
+            line-height: 1.1;
+            color: #fff;
+        }
+
+        .landing-content p {
+            font-size: 1.4em;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 60px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .scroll-indicator {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: float 2s ease-in-out infinite;
+        }
+
+        .scroll-text {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .scroll-arrow {
+            font-size: 2em;
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+
+        /* Content Sections */
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 20px;
+        }
+
+        .content {
+            max-width: 650px;
+            width: 100%;
+            padding: 30px 35px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        p {
+            font-size: 1.05em;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 12px;
+        }
+
+        .stat {
+            font-size: 2.5em;
+            font-weight: 700;
+            color: #64ffda;
+            margin: 15px 0;
+            text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+        }
+
+        /* Video Container - Responsive 16:9 */
+        .video-container {
+    position: relative;
+    padding-bottom: 56.25%;
+    height: 0;
+    overflow: hidden;
+    margin: 25px 0;
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+.video-container video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    object-fit: contain;
+}
+
+
+        /* iframe styling */
+        .iframe-container {
+            width: 100%;
+            height: 500px;
+            margin: 25px 0;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .iframe-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .caption {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.6);
+            font-style: italic;
+            margin-top: 8px;
+        }
+
+        .spacer {
+            height: 60vh;
+        }
+
+        /* Quiz Section with Fixed Background Image */
+.quiz-wrapper {
+    position: relative;
+    background: #2a1a5e;
+}
+
+.quiz-fixed-background {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    background-image: url('./images/quiz_bg.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 50px;
+}
+
+.quiz-visual {
+    font-size: 8em;
+    opacity: 0.3;
+    display: none; /* Hide the emoji since you have a background image now */
+}
+
+.quiz-scrolling-content {
+    position: relative;
+    z-index: 1;
+}
+
+.quiz-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 100px 20px;
+    position: relative;
+}
+
+.quiz-section .content {
+    margin-right: 100px;
+    max-width: 600px;
+}
+
+        .quiz-options {
+            margin-top: 20px;
+        }
+
+        .quiz-option {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.05em;
+        }
+
+        .quiz-option:hover {
+            background: rgba(255, 255, 255, 0.15);
+            border-color: rgba(255, 255, 255, 0.4);
+            transform: translateX(-5px);
+        }
+
+        .quiz-option.selected {
+            background: rgba(100, 255, 218, 0.2);
+            border-color: #64ffda;
+        }
+
+        .quiz-option.correct {
+            background: rgba(76, 175, 80, 0.3);
+            border-color: #4caf50;
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(244, 67, 54, 0.3);
+            border-color: #f44336;
+        }
+
+        .quiz-feedback {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 500;
+            display: none;
+        }
+
+        .quiz-feedback.show {
+            display: block;
+        }
+
+        .quiz-feedback.correct {
+            background: rgba(76, 175, 80, 0.2);
+            border: 1px solid #4caf50;
+            color: #a5d6a7;
+        }
+
+        .quiz-feedback.incorrect {
+            background: rgba(244, 67, 54, 0.2);
+            border: 1px solid #f44336;
+            color: #ef9a9a;
+        }
+
+        @media (max-width: 768px) {
+            .landing-content h1 { font-size: 2.5em; }
+            .landing-content p { font-size: 1.1em; margin-bottom: 40px; }
+            h2 { font-size: 1.5em; }
+            p { font-size: 1em; }
+            .content { 
+                padding: 25px 20px;
+                max-width: 90%;
+            }
+            .iframe-container { height: 350px; }
+            .section { padding: 80px 15px; }
+            .quiz-section .content {
+                margin-right: auto;
+                margin-left: auto;
+            }
+        }
+
+        /* Instagram Reel Styling */
+.instagram-container {
+    width: 100%;
+    max-width: 400px;
+    margin: 25px auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    background: #fff;
+}
+
+.instagram-container video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+@media (max-width: 768px) {
+    .instagram-container {
+        max-width: 100%;
+    }
+    
+    .instagram-container iframe {
+        min-height: 500px;
+    }
+}
+
+/* Slider Styling */
+.slider-container {
+    margin: 30px 0;
+}
+
+.quiz-slider {
+    width: 100%;
+    height: 8px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.quiz-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #64ffda;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+}
+
+.quiz-slider::-moz-range-thumb {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: #64ffda;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(100, 255, 218, 0.5);
+    border: none;
+}
+
+.slider-value {
+    text-align: center;
+    font-size: 2em;
+    font-weight: 700;
+    color: #64ffda;
+    margin: 20px 0;
+    text-shadow: 0 0 20px rgba(100, 255, 218, 0.5);
+}
+
+.quiz-submit {
+    background: rgba(100, 255, 218, 0.2);
+    border: 2px solid #64ffda;
+    border-radius: 8px;
+    padding: 12px 30px;
+    color: #fff;
+    font-size: 1.05em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.quiz-submit:hover {
+    background: rgba(100, 255, 218, 0.3);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(100, 255, 218, 0.3);
+}
+
+.quiz-submit:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+    </style>
+</head>
+<body>
+    <div id="canvas-container">
+        <canvas id="stars"></canvas>
+    </div>
+
+    <!-- Landing Page -->
+    <div class="landing-page" id="landing">
+        <div class="landing-content">
+            <h1>Music that shaped 2025</h1>
+            <p><em>The angels up in the clouds are jealous, knowing we're gonna be golden even if the world was ending.</em> 
+                This isn't a motivational slogan. It's just three of the most popular songs of 2025.
+            </p>
+            <div class="scroll-indicator">
+                <div class="scroll-text">Scroll to learn more</div>
+                <div class="scroll-arrow">↓</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 1: Music and Storytelling -->
+    <div class="section" id="section2">
+        <div class="content">
+            <h2>Music and storytelling</h2>
+            <p>For Szymon Slusarz-Kowalczyk, the day when Spotify Wrapped gets released is a holiday of sorts. A junior engineering student 
+                at the University of Missouri, he said Wrapped combines his knack for math and statistics with his love for music.</p>
+            <p><em>"I also just forget everything I listened to at the beginning of the year, and I like to rediscover things about myself
+                and see how I have changed,"</em> Slusarz-Kowalczyk said.</p>
+            <p>Slusarz-Kowalczyk said he loves music that evokes feelings and tells stories. His favorite song of the year is Ofelia by Kiltro. 
+                The band appeals to him because of its "very fun beats and amazing Latin guitar." The song tells the story of unrequited love. 
+            <p><em>"In the song, they repeat 'It's alright, it's a lie' so much to the point where they sound practically the same. There are
+                even arguments by fans over what the correct lyric is. I love the anguish of it,"</em> he said.</p>
+            <p><iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/21B9uYkOU8YNeEoT1MAThK?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe></p>   
+            
+        </div>
+    </div>
+
+    <!-- Section 2: Other students -->
+    <div class="section" id="instagram-section">
+        <div class="content">
+            <h2>Campus beats</h2>
+            <p>Other students at Mizzou shared their 2025 music favorites. Watch the video below to find out which songs the Tigers 
+                chose to soundtrack their studying. 
+            </p>
+        
+            <div class="instagram-container">
+    <video controls>
+        <source src="./images/mizzou_beats.MP4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+            <p>Listen to the songs mentioned by Tigers below.</p>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/5eSsKNQjUQ239NA0mPmsej?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+</div>
+
+    <!-- Quiz Section with Fixed Visual on Left -->
+    <div class="quiz-wrapper">
+        <div class="quiz-fixed-background">
+    <div class="quiz-visual">
+        <img src="./images/quiz_bg.png" alt="Quiz collage">
+    </div>
+</div>
+        
+        <div class="quiz-scrolling-content">
+            <div class="quiz-section" id="quiz1">
+    <div class="content">
+        <h2>Question 1</h2>
+        <p>Who headlined the 2025 Super Bowl halftime show?</p>
+        <div class="quiz-options">
+            <div class="quiz-option" data-answer="wrong">A) Bad Bunny</div>
+            <div class="quiz-option" data-answer="wrong">B) Taylor Swift</div>
+            <div class="quiz-option" data-answer="correct">C) Kendrick Lamar</div>
+            <div class="quiz-option" data-answer="wrong">D) Usher</div>
+        </div>
+        <div class="quiz-feedback" data-correct-feedback="Perfect! Kendrick Lamar's performance covered racial injustice, 
+        oppression and capitalism." data-incorrect-feedback="Not quite! Kendrick Lamar headlined the 2025 Super Bowl halftime show, and
+        his performance covered racial injustice, oppression and capitalism."></div>
+    </div>
+</div>
+
+            <div class="quiz-section" id="quiz2">
+    <div class="content">
+        <h2>Question 2</h2>
+        <p>How many albums did Bruce Springsteen release in 2025? (Slide to guess)</p>
+        <div class="slider-container">
+            <input type="range" min="1" max="10" value="1" class="quiz-slider" id="slider2">
+            <div class="slider-value"><span id="slider2-value">1</span></div>
+        </div>
+        <button class="quiz-submit" data-correct="7" data-tolerance="1">Submit Answer</button>
+        <div class="quiz-feedback" data-correct-feedback="Exactly! The project, titled Tracks II: The Lost Albums, features
+        83 songs." data-incorrect-feedback="Not quite! Bruce Springsteen released seven albums, as part of the 
+        Tracks II: The Lost Albums project, which features 83 songs."></div>
+    </div>
+</div>
+
+            <div class="quiz-section" id="quiz3">
+    <div class="content">
+        <h2>Question 3</h2>
+        <p>Which band announced its return after a break from touring that started in 2003?</p>
+        <div class="quiz-options">
+            <div class="quiz-option" data-answer="correct">A) The Sex Pistols</div>
+            <div class="quiz-option" data-answer="wrong">B) ABBA</div>
+            <div class="quiz-option" data-answer="wrong">C) AC/DC</div>
+            <div class="quiz-option" data-answer="wrong">D) Pink Floyd</div>
+        </div>
+        <div class="quiz-feedback" data-correct-feedback="Yes! The Sex Pistols announced a Fall 2025 North American tour 
+        in March 2025 but had to postpone it because guitarist Steve Jones broke his wrist." data-incorrect-feedback="Not this time. 
+        The Sex Pistols announced a Fall 2025 North American tour in March 2025 but had to postpone it because guitarist 
+        Steve Jones broke his wrist."></div>
+    </div>
+</div>
+
+            <div class="quiz-section" id="quiz4">
+    <div class="content">
+        <h2>Question 4</h2>
+        <p>How many stars did Rolling Stone give Rosalía's new album "Lux"?</p>
+        <div class="slider-container">
+            <input type="range" min="0" max="5" value="0" class="quiz-slider" id="slider4">
+            <div class="slider-value"><span id="slider4-value">0</span></div>
+        </div>
+        <button class="quiz-submit" data-correct="5" data-tolerance="1">Submit Answer</button>
+        <div class="quiz-feedback" data-correct-feedback="Spot on! Rolling Stone gave the album five stars, which is quite rare. 
+        Additionally, Rosalia broke the record for the most streams in the first 24 hours by a female Spanish-language artist 
+        on Spotify." data-incorrect-feedback="Not quite! Rolling Stone gave the album five stars, which is rather rare. 
+        Additionally, Rosalia broke the record for the most streams in the first 24 hours by a female Spanish-language artist 
+        on Spotify."></div>
+    </div>
+</div>
+
+            <div class="quiz-section" id="quiz5">
+    <div class="content">
+        <h2>Question 5</h2>
+        <p>"Walk My Walk" is a country song that's currently trending and has already topped a Billboard country music chart. Who sings it?</p>
+        <div class="quiz-options">
+            <div class="quiz-option" data-answer="wrong">A) Dolly Parton</div>
+            <div class="quiz-option" data-answer="correct">B) Breaking Rust</div>
+            <div class="quiz-option" data-answer="wrong">C) Willie Nelson</div>
+            <div class="quiz-option" data-answer="wrong">D) Alex Warren</div>
+        </div>
+        <div class="quiz-feedback" data-correct-feedback="Exactly right! Breaking Rust is an 
+        AI-generated artist." data-incorrect-feedback="Not quite! The song is performed by Breaking Rust, which is an 
+        AI-generated artist."></div>
+    </div>
+</div>
+
+        </div>
+    </div>
+
+    <!-- Section 4: Music and AI -->
+    <div class="section" id="section4">
+        <div class="content">
+            <h2>AI-assisted music</h2>
+            <p>"Walk My Walk" is not the only AI-generated song that's gaining popularity. Nor is it the first time a song was made using
+                modern technology, said Pete Zambito, associate teaching professor and assistant director of athletic bands at the 
+                University of Missouri.</p>
+
+            <p>Zambito's favorite release of the year is the album titled The Art of Loving by Olivia Dean.</p>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/album/0l8zYqoUeBYg47Gmevq9HZ?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            
+            
+        </div>
+    </div>
+
+    <!-- Section 4: Trial -->
+    <div class="section" id="section4">
+        <div class="content">
+            <h2>Music events of the year</h2>
+            <p>The year 2025 was not short on news from the music industry. 
+                Take the quiz below to brush up on all that has happened this year.</p>
+        </div>
+    </div>
+
+    <!-- Section 5: Music and AI, music education -->
+    <div class="section" id="section4">
+        <div class="content">
+            <h2>No, music doesn't make you smarter</h2>
+            <p>But actively listening to music does have a lot of benefits, said Wendy Sims, director of undergraduate and graduate 
+                studies in music education at the University of Missouri. Sims said it is important to expose people to music as early 
+                as possible.</p>
+            <p>When it comes to the kind of music that can be beneficial, Sims said any genre will do. The reason academic music education
+                focuses on classical pieces is to make sure children are exposed to all sorts of styles, and not just popular music, which 
+                they kind find online or on the radio, she said. At the same time, Sims is adamant that music should be created by humans, 
+                not AI algorithms.</p>
+            <p>Sims's favorite song of the year is Abracadabra by Lady Gaga.</p>
+            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/5ZLUm9eab8y3tqQ1OhQSHI?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <!-- Section 6: Sonification -->
+    <div class="section" id="section1">
+        <div class="content">
+            <h2>Billboard's top songs throughout the year</h2>
+            <p>Each week, Billboard releases its Hot 100 charts which ranks songs based on streaming data, 
+                radio airplay and sales. The exact methodology has been kept confidential.</p>
+            
+            <div class="video-container">
+                <video src="images/sonification_animation_draft.mp4" controls></video>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 7: Interactive floruish graphics -->
+    <div class="section" id="section6">
+        <div class="content">
+            <h2>So, what was the top song?</h2>
+            <p>One way to establish the song of the year is to look at all songs that have ranked first and count up the number of weeks
+                they held this position. However, this approach would be detrimental to songs that were consistently ranked second or 
+                third for several months, compared to a 5-week one hit wonder.</p>
+            <p>To combat this, each week a song can be assigned a score between 1 and 100, where the song that was ranked first 
+                gets 100 points, a song that was ranked second gets 99 points and so on all the way to the song that was ranked 100th, 
+                which would get it 1 point. These points can then be added up to reveal the song with the highest yearly score.</p>
+            <p>The chart below lets you compare what the top 10 songs of 2025 are based on these two approaches.</p>
+            
+            <div class="flourish-embed flourish-chart" data-src="visualisation/23262264"><script src="https://public.flourish.studio/resources/embed.js"></script><noscript><img src="https://public.flourish.studio/visualisation/23262264/thumbnail" width="100%" alt="chart visualization" /></noscript></div>
+
+        </div>
+    </div>
+
+    <div class="spacer"></div>
+
+    <script>
+        // Music notes animation
+        const canvas = document.getElementById('stars');
+        const ctx = canvas.getContext('2d');
+        let notes = [];
+        let scrollY = 0;
+
+        // Music note symbols
+        const noteSymbols = ['♩', '♪', '♫', '♬', '♭', '♮', '♯'];
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            initNotes();
+        }
+
+        function initNotes() {
+            notes = [];
+            for (let i = 0; i < 25; i++) {
+                notes.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    symbol: noteSymbols[Math.floor(Math.random() * noteSymbols.length)],
+                    size: Math.random() * 15 + 12,
+                    speed: Math.random() * 0.2 + 0.1,
+                    opacity: Math.random() * 0.3 + 0.2,
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 0.5
+                });
+            }
+        }
+
+        function drawNotes() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            notes.forEach(note => {
+                ctx.save();
+                ctx.translate(note.x, note.y);
+                ctx.rotate((note.rotation * Math.PI) / 180);
+                
+                ctx.fillStyle = `rgba(255, 255, 255, ${note.opacity})`;
+                ctx.font = `${note.size}px Arial`;
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText(note.symbol, 0, 0);
+                
+                ctx.restore();
+
+                // Update position
+                note.y += note.speed + scrollY * 0.01;
+                note.rotation += note.rotationSpeed;
+                
+                // Reset when off screen
+                if (note.y > canvas.height + 50) {
+                    note.y = -50;
+                    note.x = Math.random() * canvas.width;
+                }
+            });
+
+            requestAnimationFrame(drawNotes);
+        }
+
+        resizeCanvas();
+        drawNotes();
+        window.addEventListener('resize', resizeCanvas);
+
+        // Scroll animations
+        let lastScroll = window.scrollY;
+        
+        window.addEventListener('scroll', () => {
+            scrollY = (window.scrollY - lastScroll) * 0.1;
+            lastScroll = window.scrollY;
+            
+            const sections = document.querySelectorAll('.content');
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight * 0.7 && rect.bottom > window.innerHeight * 0.3;
+                
+                if (isVisible) {
+                    section.classList.add('visible');
+                }
+            });
+
+            // Animated counters
+            animateCounter('data-counter', 147, window.scrollY);
+            animateCounter('journey-counter', 12, window.scrollY);
+        });
+
+        function animateCounter(id, target, scroll) {
+            const element = document.getElementById(id);
+            if (!element) return;
+            
+            const rect = element.getBoundingClientRect();
+            if (rect.top < window.innerHeight * 0.7 && rect.bottom > 0) {
+                const progress = Math.min(1, Math.max(0, (window.innerHeight - rect.top) / window.innerHeight));
+                const current = (target * progress).toFixed(1);
+                element.textContent = current;
+            }
+        }
+
+        // Initial check
+        window.dispatchEvent(new Event('scroll'));
+
+        // Quiz interaction
+        // Quiz interaction - Multiple Choice
+document.querySelectorAll('.quiz-option').forEach(option => {
+    option.addEventListener('click', function() {
+        const quizSection = this.closest('.quiz-section');
+        const allOptions = quizSection.querySelectorAll('.quiz-option');
+        const feedbackEl = quizSection.querySelector('.quiz-feedback');
+        const isCorrect = this.getAttribute('data-answer') === 'correct';
+        
+        // Remove previous selections
+        allOptions.forEach(opt => {
+            opt.classList.remove('selected', 'correct', 'incorrect');
+        });
+        
+        // Mark selected answer
+        this.classList.add('selected');
+        
+        if (isCorrect) {
+            this.classList.add('correct');
+            feedbackEl.textContent = feedbackEl.getAttribute('data-correct-feedback');
+            feedbackEl.className = 'quiz-feedback correct show';
+        } else {
+            this.classList.add('incorrect');
+            // Also highlight the correct answer
+            allOptions.forEach(opt => {
+                if (opt.getAttribute('data-answer') === 'correct') {
+                    opt.classList.add('correct');
+                }
+            });
+            feedbackEl.textContent = feedbackEl.getAttribute('data-incorrect-feedback');
+            feedbackEl.className = 'quiz-feedback incorrect show';
+        }
+    });
+});
+
+// Slider interaction
+document.querySelectorAll('.quiz-slider').forEach(slider => {
+    const valueDisplay = document.getElementById(slider.id + '-value');
+    
+    slider.addEventListener('input', function() {
+        valueDisplay.textContent = this.value;
+    });
+});
+
+// Submit slider answers
+document.querySelectorAll('.quiz-submit').forEach(button => {
+    button.addEventListener('click', function() {
+        const quizSection = this.closest('.quiz-section');
+        const slider = quizSection.querySelector('.quiz-slider');
+        const feedbackEl = quizSection.querySelector('.quiz-feedback');
+        const correctAnswer = parseInt(this.getAttribute('data-correct'));
+        const tolerance = parseInt(this.getAttribute('data-tolerance'));
+        const userAnswer = parseInt(slider.value);
+        
+        const isCorrect = Math.abs(userAnswer - correctAnswer) <= tolerance;
+        
+        if (isCorrect) {
+            feedbackEl.textContent = feedbackEl.getAttribute('data-correct-feedback');
+            feedbackEl.className = 'quiz-feedback correct show';
+        } else {
+            feedbackEl.textContent = feedbackEl.getAttribute('data-incorrect-feedback');
+            feedbackEl.className = 'quiz-feedback incorrect show';
+        }
+        
+        this.disabled = true;
+    });
+});
+    </script>
+</body>
+</html>
