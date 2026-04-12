@@ -1,0 +1,902 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+		<title>Missourian Infographics</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" / >
+		<meta content="width=device-width, initial-scale=1" name="viewport" />
+
+		<!-- THESE ARE THE CSS FILES I ADDED -->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Domine:400,700"/>
+
+        <!-- THESE ARE THE JAVASCRIPT FILES I ADDED -->
+
+		<script type="text/javascript" src="http://www.columbiamissourian.com/app/projects/Project_files/js/jquery-1.9.1.js"></script>
+		<script type="text/javascript" src="http://www.columbiamissourian.com/app/projects/Project_files/js/jquery-ui-1.10.2.custom.js"></script>
+		<script type="text/javascript" src="http://www.columbiamissourian.com/app/projects/Project_files/js/jquery.ui.tooltip.js"></script>
+		<script type="text/javascript" src="http://www.columbiamissourian.com/app/projects/Project_files/js/jquery.cycle.all.js"></script>
+
+
+		<!-- THE CSS STYLES START HERE -->
+		<style>
+			/*! jQuery UI - v1.10.2 - 2013-03-17
+			* http://jqueryui.com
+			* Includes: jquery.ui.core.css, jquery.ui.resizable.css, jquery.ui.selectable.css, jquery.ui.accordion.css, jquery.ui.autocomplete.css, jquery.ui.button.css, jquery.ui.datepicker.css, jquery.ui.dialog.css, jquery.ui.menu.css, jquery.ui.progressbar.css, jquery.ui.slider.css, jquery.ui.spinner.css, jquery.ui.tabs.css, jquery.ui.tooltip.css
+			* Copyright 2013 jQuery Foundation and other contributors Licensed MIT */
+
+			h1 {
+				font-size: 3em;
+			    line-height: 1.2em;
+			}
+
+			p.body, a {
+				color: black;
+			    font-size: 16px;
+			    line-height: 27px;
+			    margin-bottom: 24px;
+			}
+
+			.domine, h3 {
+				 font-family:  'Domine', serif;
+			}
+
+			.base {
+				background-attachment: fixed;
+				height: 400px;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+
+
+			}
+
+			.clear {clear: both;}
+
+						/* INTRO SECTION */
+
+			.coveropener {
+				position: relative;
+				background-repeat: no-repeat;
+  				background-position: center;
+				background-size: cover;
+  				height: 100vh;
+
+			}
+
+			.centered {
+				  margin: 0;
+				  position: absolute;
+				  top: 50%;
+				  left: 50%;
+				  -ms-transform: translate(-50%, -50%);
+				  transform: translate(-50%, -50%);
+				max-width: 684px;
+				max-height: 400px;
+				width: 90%;
+				height: 90%;
+			    text-align: center;
+			    font-family: inerit;
+			    line-height: 1.5em;
+			    padding: 5%;
+
+			}
+
+			.move {
+			  opacity: 0;
+			  transform: translate(0, 10vh);
+			  transition: all 3s;
+			}
+
+			.move.visible {
+			  opacity: 1;
+			  transform: translate(0, 0);
+			}
+
+
+			.start.fade-in {
+			animation: fadeIn ease 2s;
+			-webkit-animation: fadeIn ease 2s;
+			-moz-animation: fadeIn ease 2s;
+			-o-animation: fadeIn ease 2s;
+			-ms-animation: fadeIn ease 2s;
+			}
+			@keyframes fadeIn {
+			0% {opacity:0;}
+			100% {opacity:1;}
+			}
+
+			@-moz-keyframes fadeIn {
+			0% {opacity:0;}
+			100% {opacity:1;}
+			}
+
+			@-webkit-keyframes fadeIn {
+			0% {opacity:0;}
+			100% {opacity:1;}
+			}
+
+			@-o-keyframes fadeIn {
+			0% {opacity:0;}
+			100% {opacity:1;}
+			}
+
+			@-ms-keyframes fadeIn {
+			0% {opacity:0;}
+			100% {opacity:1;}
+			}
+
+			.start.fade-out {
+			animation: fadeOut ease 3s forwards;
+			-webkit-animation: fadeOut ease 3s forwards;
+			-moz-animation: fadeOut ease 3s forwards;
+			-o-animation: fadeOut ease 3s forwards;
+			-ms-animation: fadeOut ease 3s forwards;
+			}
+			@keyframes fadeOut {
+			0% {opacity:1;}
+			100% {opacity:0;}
+
+			}
+
+			@-moz-keyframes fadeOut {
+			0% {opacity:1;}
+			100% {opacity:0;}
+			}
+
+			@-webkit-keyframes fadeOut {
+			0% {opacity:1;}
+			100% {opacity:0;}
+			}
+
+			@-o-keyframes fadeOut {
+			0% {opacity:1;}
+			100% {opacity:0;}
+			}
+
+			@-ms-keyframes fadeOut {
+			0% {opacity:1;}
+			100% {opacity:0;}
+			}
+
+
+			/* ALL ABOUT THE GRAPHIC DIV */
+
+			.graphic{
+				width: 100%;
+			    max-width: 630px;
+			    height: auto;
+			    margin: 0 auto 0 auto ;
+			}
+			.graphicmedium{
+			    max-width: 960px;
+			    width: 100%;
+			    height: auto;
+			    margin: 0 auto 0 auto ;
+			}
+			.graphicwide{
+			    max-width: 1200px;
+			    width: 100%;
+			    height: auto;
+			    margin: 0 auto 0 auto ;
+			}
+
+
+			.graphic h4, .graphicwide h4, .graphicmedium h4  {
+			    padding: 0;
+			    margin: 50px 0 4px 0;
+			    font-family:  'Domine', serif;
+			    font-weight: bold;
+			    font-size: 1.5em;
+			    line-height: 1.5em;
+			    z-index: 2000;
+			    }
+
+			.graphic p, p {
+			    width: 100%;
+			    padding: 5px 0;
+			    margin: 0 0 8px 0;
+			    font-family:  'Domine', serif;
+			    font-size: 1em;
+			    line-height: 1.5em;
+			    z-index: 2000;
+
+			    }
+
+			.graphic img, .graphicmedium img, .graphicwide img{
+			    width: 100%;
+			    height: auto;
+			    z-index: 1000;
+			    }
+
+			.graphic div{
+			    /*width: 100%;*/
+			    height: auto;
+			    z-index: 1000;
+			}
+
+
+			/* 1-2-3 PANEL STYLES */
+
+			.tab-nav a {
+			    background: none repeat scroll 0 0 white;
+			    border: 1px solid black;
+			    color: black;
+			    display: inline-block;
+			    font-size: 12px;
+			    font-weight: bold;
+			    margin: 0 4px 0 0;
+			    border-radius: 100%;
+			    padding: 4px 4px;
+			    width: 14px;
+			    text-align: center;
+			    text-decoration: none;
+			    font-family: sans-serif;
+			    line-height: 14px;
+			}
+
+			#next_panel {
+				width: 70px;
+				border-radius: 15px;
+			}
+
+			.tab-nav a.activeSlide {
+			    background: none repeat scroll 0 0 white;
+			    color: black;
+			}
+
+			.tab-nav {
+			    width: auto !important;
+			    float: left;
+			    margin: 10px 10px 0 0;
+			    height: 44px;
+			}
+
+			.tab-wrapper {
+			    margin: 0 auto -1px auto;
+			    height: 20px;
+			}
+
+			#panel_graphic {
+			    margin: 10px 0 0 0;
+			    position: relative;
+			    width: 100% !important;
+			}
+
+
+
+			.panel {
+			    position: relative;
+			    display: block;
+			    left: 0;
+			    opacity: 1;
+			    padding: 10px;
+			    z-index: 4;
+			    background-color: white;
+					width: 100%;
+			}
+
+			.title{
+				font-family: 'Open Sans', sans-serif;
+				font-size: 1em;
+				width: 450px;
+				margin-left: 40px;
+			}
+
+
+			/* TABBED PANEL GRAPHIC */
+
+			#slideshow-wrapper {margin: 20px 0 10px 0; color: black;}
+			#slideshow-nav  {height: auto;float: left;z-index: 1000;}
+			#slideshow-nav li {
+			    border: 1px solid #999999;
+			    border-bottom: 1px solid white;
+			    border-radius: 10px 10px 0 0;
+			    padding: 10px 10px 5px 10px;
+			    display: block;
+			    float: left;
+			    zoom: 1;
+			    filter: alpha(opacity=50);
+			    opacity: 0.5;
+			    margin: 0 0 0 5px;
+			    width: 15%;
+			    font-family: arial, sans-serif;
+			    font-size: 12px;
+			    line-height: 14px;
+			    text-align: center;
+			    height: auto;
+			    vertical-align: top;
+			    background-color: none;
+					color: black;
+			}
+
+			#slideshow-nav li img {width: 100%;}
+			.nav-container {z-index: 2000;}
+			#slideshow-nav li.first {margin-left: 6px;}
+			#slideshow-nav li:hover {zoom: 1;filter: alpha(opacity=100);opacity: 1; background-color: white;}
+			#slideshow-nav li.activeSlide  {filter:alpha(opacity=100);opacity:1; background-color: white;font-weight: bold;border-bottom:2px solid white;z-index: 1000;}
+			#slidescontainer {position: relative;overflow: hidden;}
+			#slideshow {position: relative;width: 100% !important;}
+			.slide {width: 100% !important; position: absolute;text-align: left;padding: 10px 20px 0 20px; display: none;background-color: white;z-index: 1;}
+
+			.horiz-line1 {margin-top: -1px;border-top: 1px solid #999999;z-index:100;}
+			#prev-btn, #next-btn {display: inline;float: left;margin-top: 10px;padding: 0px 0px 0 10px;width: 31px;text-align: left;vertical-align: middle;z-index: 20;}
+			#next-btn {text-align: right;}
+			#arrowfull {zoom: 1;filter: alpha(opacity=100);opacity: 1;}
+			#arrowfaint {zoom: 1;filter: alpha(opacity=20);opacity: 0.4;}
+
+			/* TABBED PANEL WITH IMAGES */
+
+			#slideshow-wrapper2 {margin: 20px 0 10px 0; color: black;}
+			#slideshow-nav2  {height: auto;float: left;z-index: 1000;}
+			#slideshow-nav2 li {
+			    border: 1px solid #999999;
+			    border-bottom: 1px solid white;
+			    border-radius: 10px 10px 0 0;
+			    padding: 10px 10px 5px 10px;
+			    display: block;
+			    float: left;
+			    zoom: 1;
+			    filter: alpha(opacity=50);
+			    opacity: 0.5;
+			    margin: 0 0 0 5px;
+			    width: 15%;
+			    font-family: arial, sans-serif;
+			    font-size: 12px;
+			    line-height: 14px;
+			    text-align: center;
+			    height: auto;
+			    vertical-align: top;
+			    background-color: white;
+			    color: black;
+			}
+
+			#slideshow-nav2 li img {width: 100%; color: white; padding-top: 10px;}
+			.nav-container2 {z-index: 2000;}
+			#slideshow-nav2 li.first {margin-left: 6px;}
+			#slideshow-nav2 li:hover {zoom: 1;filter: alpha(opacity=100);opacity: 1; background-color: white;}
+			#slideshow-nav2 li.activeSlide  {filter:alpha(opacity=100);opacity:1; background-color: white;font-weight: bold;border-bottom:2px solid white ;z-index: 1000;}
+			#slidescontainer2 {position: relative; overflow: hidden;}
+			#slidewithimages { position: relative; width: 100% !important;}
+			.slidewithimage {position: absolute;text-align: left;padding: 0 20px; display: none;background-color: white;z-index: 1;}
+
+			.horiz-line1 {margin-top: -1px;border-top: 1px solid #999999;z-index:100;}
+			#prev-btn, #next-btn {display: inline;float: left;margin-top: 10px;padding: 0px 0px 0 10px;width: 31px;text-align: left;vertical-align: middle;z-index: 20;}
+			#next-btn {text-align: right;}
+			#arrowfull {zoom: 1;filter: alpha(opacity=100);opacity: 1;}
+			#arrowfaint {zoom: 1;filter: alpha(opacity=20);opacity: 0.4;}
+
+			/* NUMBERED DOTS */
+
+				.dots{
+				    position: relative;
+				}
+
+				.dot {
+				    background-color: #DF7527;
+				    color: white;
+				    text-align: center;
+				    vertical-align: middle;
+				    padding: 0;
+				    line-height: 20px;
+				    font-family: sans-serif;
+				    font-size: 14px;
+				    width: 20px !important;
+				    height: 20px !important;
+				    border-radius: 20px;
+				    border: 1px solid #ffffff;
+				    box-shadow: 1px 1px 1px #000000;
+				    cursor: pointer;
+				    z-index: 999;
+				}
+
+				.dots #parent {
+				  position: absolute;
+				  width: auto;
+				}
+
+				#parent a {
+					text-decoration: none;
+				}
+
+				#popup {
+					position: absolute;
+					background-origin: bottom left;
+					left: -75px;
+					bottom: 45px;
+
+				  border: solid 1px #666666;
+				  background-color: white;
+				  box-shadow: 1px 2px 4px rgba(0, 0, 0, .5);
+				  padding: 10px;
+				  font-family: 'Open Sans', sans-serif;
+				  font-size: 0.9em;
+				  line-height: 1.2em;
+				  width: 160px;
+				  color: black;
+				}
+
+				#parent #popup::after {
+				  content: "";
+				  position: absolute;
+				  top: 100%;
+				  left: 45%;
+				  margin-left: -5px;
+				  border-width: 10px;
+				  border-style: solid;
+				  border-color: black transparent transparent transparent;
+				}
+
+
+				#popup div {
+					width: 100%;
+					margin: auto;
+				}
+
+				#parent #popup {
+				  display: none;
+				  min-width: 250px;
+				}
+
+				#parent:hover #popup {
+				  display: block;
+				}
+
+				#parent:hover {
+				  z-index: 5000;
+				}
+
+				/* RESPONSIVE STYLE BREAKPOINT REFERENCE
+					big desktops: 1400px;
+					most laptops: 1100px;
+					iPad portrait: 768px;
+					phones: 480px;
+					smaller phones: 300px;*/
+
+				@media screen and (max-width: 1400px){
+					/*use these classes to switch out three levels of images with hard-to-read text*/
+					.hide-desktop {display:block;}
+					.hide-desktop {display:none;}
+					.hide-tablet {display:none;}
+				}
+
+				@media screen and  (max-width: 1100px){
+				}
+
+				@media screen and  (max-width: 768px){
+					.hide-desktop {display:none;}
+					.hide-tablet {display:block;}
+				}
+
+				@media screen and  (max-width: 480px){
+					.hide-desktop {display:none;}
+					.hide-tablet {display:none;}
+					.hide-mobile {display:block;}
+
+					/*making fonts a bit smaller*/
+					.graphic h4 {font-size:1.5em;}
+					.graphic p {font-size:0.9em; line-height: 1.4em;}
+					.graphic {width: 100%; max-width: 1200px;}
+					.centered {max-height: none;}
+				}
+
+				@media screen and  (max-width: 300px){
+					.graphic h4 {font-size:1.5em;}
+					.graphic p {font-size:0.9em; line-height: 1.4em;}
+					.graphic {width: 100%; max-width: 1200px;}
+					.centered {max-height: none;}
+				}
+		</style>
+
+</head>
+
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- THE PAGE YOU SEE STARTS HERE!!!!!!!!!  -->
+		<!-- OPTIONS-YOU DON'T HAVE TO DO THESE:
+				1. If you want a fixed background image behind the whole graphic, add URL between parenthesis below.
+				2. If you would prefer a white template, change the background color to white, and the color to black (that's the color of the text) / -->
+
+<body id="site" class="base" style="background-image: url(); background-color: white; color: black;">
+
+
+<!-- INTRO SECTION//////////////////////// -->
+		<!-- OPTIONS:
+				1. Add the link to your opening image between the parenthesis below. Do not do this AND a fixed background image behind the whole graphic. -->
+
+				<div class="coveropener start fade-in" style="background-image: url(images/sky_edited.jpeg);">
+
+		<!-- MANDATORY CHANGES:
+				1. Fill in the headline (H1)
+				2. Put your name in the XXXXsw
+				3. Change the date
+				4. Play with the opacity of the rectangle box by changing the decimal. 0 is completely transparent, 1 is completely black. You can also change the color by messing with the RGB values (0,0,0) -->
+					<div class="centered" style="background-color: rgb(255, 255, 255, 0.5);">
+						<h1>Doctors warn melanoma risk is prevalent year round</h1>
+						<p>By <a href="https://www.columbiamissourian.com/users/profile/guest5cb20e496c6839e1d5389e5f/" target="_blank">Mariia Novoselia</a> | November 23, 2025</p>
+						<p>Melanoma of the skin is the seventh most common cancer site in Missouri, according to Missouri
+Cancer Registry. More than 7,500 melanoma cases were recorded in the state between 2018 and 2022.</p>
+					</div>
+				</div>
+
+<!-- END OF INTRO SECTION ////////////////////// -->
+
+
+
+
+
+<!-- BEGIN SINGLE LAYER - SIMPLE IMAGE -->
+			
+
+			<div class="graphic">
+					<h4>UV rays bounce off snow, ice and water</h4>
+					<p>The risk of getting melanoma is based on lifetime UV exposure, said <strong>Ben Casterline,</strong> 
+						assistant professor of dermatology at the University of Missouri and a dermatologist 
+						at MU Health Care. Even though UV exposure is lower in winter months, it is still potent.</p>
+					<p>"If you're protecting yourself well in the summer but not protecting yourself in the winter, 
+						you're getting exposed to a lot of UV radiation," Casterline said. "Over your life time, 
+						that's gonna add up into real skin cancer risk."</p>
+					<p><strong>Andrew Iliff,</strong> medical oncologist and hematologist with the Missouri Cancer Associates, said 
+						UV radation can reflect from snow, ice and water, increasing the amount of UV radiation a person 
+						would normally get.</p>
+			</div>
+
+			<div class="graphic move">
+
+					<!-- Change image name below -->
+					<img src="images/winter_sun.gif" alt="A gif showing sun rays hitting snow, ice and water and 
+					reflecting onto a person, illustrating the importance of sun protection in wintertime.">
+
+
+			</div>
+
+
+<!-- END SINGLE LAYER - SIMPLE IMAGE -->
+
+<!-- BEGIN SINGLE LAYER - SIMPLE IMAGE WITH TEXT BETWEEN IMAGES /-->
+
+<div class="graphic">
+	<h4>The ABCs of melanoma</h4>
+	<p>The American Academy of Dermatology created a mnemonic device to remember potential warning signs of melanoma: <strong>ABCDE.</strong></p>
+	<p>Iliff said that people should ask their loved ones to check their skin for these signs in places that might be difficult 
+		to look at on their own, such as the back.</p>
+	<p><em>Hover over each of the dots to learn the ABCs of melanoma.</em></p>
+</div>
+
+<div class="graphicmedium move">
+
+					<div class="dots">
+
+							<div id="parent" style="left: 45%; top: 20%;">
+								<div class="dot" style="background-color: #000000;" title="" >A</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/assymetry.jpg" alt="An illustration of a mole that is not symmetrical, which could be a sign of melanoma.">
+									</div>
+									<strong>Assymetry:</strong> If one half of a mole is unlike the other half.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 51%; top: 32%;">
+								<div class="dot" style="background-color: #000000;" title="" >B</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/border.jpg" alt="An illustration of a mole that has an irregular border, which could be a sign of melanoma.">
+									</div>
+									<strong>Border:</strong> If a mole has an irregular, scalloped, or poorly defined border.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 39%; top: 51%;">
+								<div class="dot" style="background-color: #000000;" title="" >C</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/color.jpg" alt="An illustration of a mole that has varying colors within itself, which could be a sign of melanoma.">
+									</div>
+									<strong>Color:</strong> If a mole has varying colors within itself, including shades of tan, brown, black, 
+									white, red, or blue.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 57%; top: 44%;">
+								<div class="dot" style="background-color: #000000;" title="" >D</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/diameter.jpg" alt="An illustration of a mole that's greater than 6 millimeters, or about the size of a pencil eraser, which could be a sign of melanoma.">
+									</div>
+									<strong>Diameter:</strong> If a mole greater than 6 millimeters, or about the size of a pencil eraser.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 45%; top: 80%;">
+								<div class="dot" style="background-color: #000000;" title="" >E</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/evolve.jpg" alt="An illustration of a mole that's changing in size, shape or color, which could be a sign of melanoma.">
+									</div>
+									<strong>Evolving:</strong> If a mole is changing in size, shape or color.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 57%; top: 87%;">
+								<div class="dot" style="background-color: #000000;" title="" >U</div>
+								<div id="popup" style="text-align: center;">
+									<div style="padding-top: 2%">
+									<img src="images/ugly.jpg" alt="An illustration of a mole that does not match the pattern of a person's other moles, which could be a sign of melanoma.">
+									</div>
+									<strong>Ugly duckling:</strong> when a mole does not match the pattern of a person's other moles, according to Casterline.
+								</div>
+							</div>
+
+							<div><img src="images/stickman.jpg" alt="An illustration of a man with six warning signs of melanoma, 
+								which are assymetry (if one half of a mole is unlike the other half), border (if a mole has has an 
+								irregular, scalloped, or poorly defined border), color (if a mole has varying colors within itself, 
+								including shades of tan, brown, black, white, red, or blue), diameter (if a mole greater than 6 
+								millimeters, or about the size of a pencil eraser), evolving (if a mole is changing in size, shape 
+								or color). Dr. Casterline added that if a mole does not match the pattern of a person's other moles, 
+								it might be a sign of melanoma, which is known as the ugly duckling sign." /></div> 
+								<!--  Important: background needs to be inside of div.-->
+						</div>
+
+			</div>
+
+
+
+
+<!-- END SINGLE LAYER - SIMPLE IMAGE WITH TEXT BETWEEN IMAGES -->
+
+<!-- BEGIN SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+			<div class="graphic">
+					<h4>Instance rates skyrocket among white people</h4>
+					<p>People with fair skin, light-colored hair, blue eyes are more likely to get melanomas, Casterline said.
+						Other factors that increase the chance of developing a melanoma include having melanoma before, as well as having a family 
+						history of melanoma, unusual brown spots or a lot of moles, he said.</p>
+					<p>In Missouri, white people are 38 times more likely to get melanoma than people of other races or ethinicities.</p>
+			</div>
+
+			<div class="graphic move">
+						<div>
+								<!-- Sub out the embded code below for your embed code -->
+									<iframe title="Melanoma instance rates" aria-label="Column Chart" id="datawrapper-chart-47BGW" src="https://datawrapper.dwcdn.net/47BGW/2/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="420" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script><!-- Sub out the embed code above for your embed code -->
+
+						</div>
+				</div>
+
+
+<!-- END SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+<!-- BEGIN PLANE SINGLE LAYER - - 1-2-3 SEQUENCE -->
+
+			<div class="graphic">
+					<h4>Stages of melanoma</h4>
+					<p>Many melanomas are caught at an early stage when they are confined to the skin and can often be cured with surgery alone, 
+						Casterline said. At later stages, melanoma can spread to lymph nodes or other organs, which means its treatment becomes 
+						more complex and may involve systemic therapies. Casterline said that <strong>immunotherapy,</strong> which activates the immune system to 
+						fight off melanoma, has been really effective.</p>
+					<p>"Immunotherapy has absolutely been a game changer in a lot of cancers, but particularly melanoma," Iliff said.</p>
+			</div>
+
+			<div class="graphic move">
+
+					<!-- Change image name below, or replace the entire line with embed code. -->
+					<div class="tab-wrapper">
+			    <div id="panel_tabs" class="tab-nav"></div>
+			    <div class="tab-nav">
+			       <a id="next_panel" href="#">Next&nbsp;&raquo;</a>
+			    </div>
+			    <div class="clear"></div>
+			</div>
+
+			<div class="panel-line"></div>
+
+			<!-- PUT YOUR INFORMATION IN THIS SECTION. COPY THE WHOLE PANEL DIV IF YOU NEED TO ADD ANOTHER PANEL AND PASTE IT BELOW THE LAST PANEL IN THIS GROUP -->
+			<div id="panel_graphic">
+					<div class="panel">
+						<img src="images/stage1.jpg" alt="An illustration of stage 0 melanoma where a melanoma is confined to the epidermal
+						region of skin."/>
+						<p class="body">At stage 0, a melanoma is confined to the epidermal
+						region of skin.</p>
+					</div>
+
+					<div class="panel">
+						<img src="images/stage2.jpg" alt="An illustration of stage 1 melanoma where a melanoma is still very thin and localized."/>
+						<p class="body">At stage 1, a melanoma is still very thin and localized.</p>
+					</div>
+
+					<div class="panel">
+						<img src="images/stage3.jpg" alt="An illustration of stage 2 melanoma where a melanoma is still localized but
+						is now thicker than it was at stage 1."/>
+						<p class="body">At stage 2, a melanoma is still localized but is now thicker than it was at stage 1.</p>
+					</div>
+
+					<div class="panel">
+						<img src="images/stage4.jpg" alt="An illustration of stage 2 melanoma where a melanoma has
+						spread to lymph nodes."/>
+						<p class="body">At stage 3, a melanoma has spread to lymph nodes.</p>
+					</div>
+
+					<div class="panel">
+						<img src="images/stage5.jpg" alt="An illustration of stage 2 melanoma where a melanoma has
+						spread to other organs."/>
+						<p class="body">At stage 4, a melanoma has spread to other organs.</p>
+					</div>
+
+			</div>
+			</div>
+			<script>
+
+			                if ($('.graphic').find('#panel_graphic').length > 0){
+                            $('.graphic').find('#panel_graphic').cycle({
+                                fx:     'fade',
+                                speed:  250,
+                                timeout:0,
+                                nowrap: true,
+                                next:   '#next_panel',
+                                pager:  '#panel_tabs'
+                            });
+                            $('#next_panel').click(function() {
+                                var num_panels = $(this).parent().siblings('#panel_tabs').find('a').length,
+                                    curr_idx = $(this).parent().siblings('#panel_tabs').find('.activeSlide').index();
+
+                                if (num_panels-1 == curr_idx) {
+                                    if ($(this).hasClass('last')) {
+                                        $(this).parent().siblings('#panel_tabs').find('a').first().click();
+                                        $(this).removeClass('last').html('Next&nbsp;&raquo;');
+                                    } else {
+                                        $(this).addClass('last').html('Start over');
+                                    }
+                                } else {
+                                    $(this).removeClass('last').html('Next&nbsp;&raquo;');
+                                }
+                            });
+
+                            $('#panel_tabs').children('a').click(function() {
+                                if ($(this).index() == $(this).parent().children('a').length-1) {
+                                    $('#next_panel').addClass('last').html('Start over');
+                                } else {
+                                    $('#next_panel').removeClass('last').html('Next&nbsp;&raquo;');
+                                }
+                            });
+                        	}
+            </script>
+
+
+<!-- END SINGLE LAYER - 1-2-3 SEQUENCE -->
+
+<!-- BEGIN SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+			<div class="graphic">
+					<h4>Northeast Missouri leads in melanoma deaths</h4>
+					<p>In Missouri, age-adjusted melanoma death rate is <strong>2.3 per 100,000 people</strong>. Many counties 
+						across Missouri, however, have a higher melanoma death rate.<br> Boone County has the rate of 
+						<strong>2.7 per 100,000 people</strong>. In some counties, the death rate is almost twice 
+						as high as the state average.</p>
+					<p>Melanoma death rate among white people in Missouri is <strong>2.6 per 100,000 people</strong>, according to the Missouri
+						Cancer Registry and Research Center. Death rates for other racial and ethinic groups are undisclosed for confidentiality reasons.</p>
+			</div>
+
+			<div class="graphic move">
+						<div>
+								<!-- Sub out the embded code below for your embed code -->
+									<iframe title="Northeast Missouri leads in melanoma deaths" aria-label="Choropleth map" id="datawrapper-chart-v5T7y" src="https://datawrapper.dwcdn.net/v5T7y/3/" scrolling="no" frameborder="0" style="width: 0; min-width: 100% !important; border: none;" height="631" data-external="1"></iframe><script type="text/javascript">window.addEventListener("message",function(a){if(void 0!==a.data["datawrapper-height"]){var e=document.querySelectorAll("iframe");for(var t in a.data["datawrapper-height"])for(var r,i=0;r=e[i];i++)if(r.contentWindow===a.source){var d=a.data["datawrapper-height"][t]+"px";r.style.height=d}}});</script>
+						</div>
+				</div>
+
+
+<!-- END SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+<!-- BEGIN SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+			<div class="graphic">
+					<h4>Doctors share prevention tips</h4>
+					<p>Hover over the dots to learn Casterline's recommendations on how to protect yourself from melanoma.</p>
+			</div>
+
+			<div class="graphicmedium move">
+
+					<div class="dots">
+
+							<div id="parent" style="left: 19%; top: 5%;">
+								<div class="dot" style="background-color: #000000;" title="" >1</div>
+								<div id="popup" style="text-align: center;">
+									Avoid the sun when the UV intensity is highest: <strong>from 10 a.m. to 4 p.m.</strong>
+								</div>
+							</div>
+
+							<div id="parent" style="left: 43%; top: 8%;">
+								<div class="dot" style="background-color: #000000;" title="" >2</div>
+								<div id="popup" style="text-align: center;">
+									Carry out <strong>monthly self-checks</strong> and look for the ABCs of melanoma.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 71%; top: 4.5%;">
+								<div class="dot" style="background-color: #000000;" title="" >3</div>
+								<div id="popup" style="text-align: center;">
+									Wear <strong>wide-brimmed hats</strong> and long-sleeved clothing made with UV protective fabric.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 25%; top: 70%;">
+								<div class="dot" style="background-color: #000000;" title="" >4</div>
+								<div id="popup" style="text-align: center;">
+									Use <strong>SPF 30+ sunscreen</strong> and reapply it every 2-3 hours on any sun exposed skin.
+								</div>
+							</div>
+
+							<div id="parent" style="left: 51%; top: 75%;">
+								<div class="dot" style="background-color: #000000;" title="" >5</div>
+								<div id="popup" style="text-align: center;">
+									Avoid <strong>tanning beds.</strong>
+								</div>
+							</div>
+
+							<div id="parent" style="left: 75%; top: 70%;">
+								<div class="dot" style="background-color: #000000;" title="" >6</div>
+								<div id="popup" style="text-align: center;">
+									Seek <strong>shade</strong> when outside.
+								</div>
+							</div>
+
+							<div><img src="images/tips.jpg" alt="An illustration of a clock, a calendar, a wide-brimmed hat, a bottle of sunscreen, 
+								a tanning bed and an umbrella to symbolize tips for melanoma prevention." /></div> 
+								<!--  Important: background needs to be inside of div.-->
+						</div>
+
+			</div>
+						
+					
+
+<!-- END SINGLE LAYER - SIMPLE FULL-WIDTH IMAGE -->
+
+
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+<!-- BEGIN SOURCES/PHOTO CREDITS -->
+
+<!-- <div class="graphic" style="color: #666666;"><p>Sources: Here and here and here for this. Add photo credit here if you have one</p></div> -->
+
+<!-- END SOURCES/PHOTO CREDITS -->
+
+
+
+<!-- ////////////////////////////////////////////////////////////////////////////////////////// -->
+<!-- END OF GRAPHIC TEMPLATE ELEMENTS  -->
+<!-- DO NOT MODIFY OR DELETE ANYTHING BELOW HERE. -->
+
+				<script>
+					$(document).on("scroll", function() {
+					  var pageTop = $(document).scrollTop();
+					  var pageBottom = pageTop + $(window).height();
+					  var moves = $(".move");
+					  var start = $(".start");
+
+					  for (var i = 0; i < moves.length; i++) {
+					    var move = moves[i];
+
+						if ($(move).position().top < pageBottom) {
+						      $(move).addClass("visible");
+						    } else {
+						      $(move).removeClass("visible");
+						    }
+						}
+						if ($(start).position().top = pageTop)  {
+						      $(start).addClass("fade-out");
+						      $(start).removeClass("fade-in");
+						    } else {
+						      $(start).addClass("fade-in");
+						      $(start).removeClass("fade-out");
+						    }
+					});
+				</script>
+
+
+	</body>
+</html>

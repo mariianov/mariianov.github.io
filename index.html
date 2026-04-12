@@ -1,460 +1,397 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>[Mariia Novoselia] - Journalism Portfolio</title>
-    <style>
-        * {
-            margin: 1;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background-color: #1a1a1a;
-            color: #fff;
-            padding: 3rem 2rem;
-            text-align: center;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            font-weight: 400;
-            letter-spacing: 1px;
-        }
-
-        header p {
-            font-size: 1.1rem;
-            color: #ccc;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 3rem 2rem;
-        }
-
-        section {
-            margin-bottom: 4rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            color: #1a1a1a;
-            border-bottom: 3px solid #1a1a1a;
-            padding-bottom: 0.5rem;
-            font-weight: 400;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            margin-top: 3rem;
-            margin-bottom: 1.5rem;
-            color: #1a1a1a;
-            font-weight: 400;
-        }
-
-        .about-content {
-            background-color: #fff;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .about-content p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .skill-category {
-            background-color: #fff;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
-
-        .skill-category h4 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-            color: #1a1a1a;
-        }
-
-        .skill-category ul {
-            list-style: none;
-        }
-
-        .skill-category li {
-            padding: 0.3rem 0;
-            color: #555;
-        }
-
-        .work-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .work-item {
-            background-color: #fff;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .work-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-        }
-
-        .work-item-image {
-            width: 100%;
-            height: 250px;
-            background-color: #e0e0e0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #999;
-            font-style: italic;
-            overflow: hidden;
-        }
-
-        .work-item-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .work-item-image.logo-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            background-color: #f5f5f5;
-        }
-        
-        .work-item-image.logo-container img {
-            width: auto;
-            height: auto;
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .video-embed {
-            width: 100%;
-            height: 250px;
-            background-color: #000;
-        }
-
-        .video-embed iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        .work-item-content {
-            padding: 1.5rem;
-        }
-
-        .work-item h4 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: #1a1a1a;
-        }
-
-        .work-item .tools {
-            color: #666;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
-
-        .work-item p {
-            color: #555;
-            margin-bottom: 1rem;
-        }
-
-        .work-item a {
-            display: inline-block;
-            color: #1a1a1a;
-            text-decoration: none;
-            font-weight: 500;
-            border-bottom: 2px solid #1a1a1a;
-            transition: all 0.3s ease;
-        }
-
-        .work-item a:hover {
-            color: #666;
-            border-bottom-color: #666;
-        }
-
-        footer {
-            background-color: #1a1a1a;
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 2rem;
-            }
-
-            .work-grid {
-                grid-template-columns: 1fr;
-            }
-
-            h3 {
-                font-size: 1.3rem;
-            }
-        }
-
-       #work-in-progress {
-    color: #1a1a1a; 
-    font-size: 8 pt;
-}
-
-#work-in-progress a {
-    color: inherit;   /* makes links follow the section color */
-}
-
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mariia Novoselia</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <h1>Mariia Novoselia</h1>
-        <p>Graphics Reporter & Data Journalist</p>
-    </header>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <div class="about-content">
-                <p>I'm a graphics reporter and data journalist pursuing a Master's degree in investigative and data journalism. I specialize in creating compelling visual narratives that make complex information accessible and engaging.</p>
-                <p>My work combines technical skills in data analysis (R programming), design (Adobe Creative Suite), and animation to tell stories that matter. I'm passionate about using visual journalism to inform communities and hold power accountable.</p>
-                <p>Currently working as a graphics reporter, I pitch and produce maps, charts, explainers, and illustrations while collaborating with reporters and editors on data-driven investigations.</p>
-            </div>
-        </section>
-
-        <section id="portfolio">
-            <h2>Portfolio</h2>
-
-            <h3>Animation & Motion Graphics</h3>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/cancer_pest.png" alt="Missouri Cancer Rates And Pesticide Use Map" />
-                        </div>
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Cancer Rates and Pesticide Use in Missouri</h4>
-                        <p class="tools">After Effects, Illustrator</p>
-                        <p>Analyzed datasets on cancer incidence and pesticide exposure using R, then created an animated explainer video that distilled complex findings into accessible visual narratives.</p>
-                        <a href="https://youtu.be/39N4yt8MsSw?si=YsSXW8eKaC_ldPVZ" target="_blank">Watch Video →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image logo-container">
-                        <img src="images/juke_vox.png" alt="Juke Vox logo" />
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Vox Magazine Logo Animation</h4>
-                        <p class="tools">After Effects, Illustrator</p>
-                        <p>Designed and animated logo for Vox Magazine, part of the Missouri News Network. Created dynamic motion graphics to enhance brand identity.</p>
-                        <a href="https://youtube.com/shorts/YjLELMgideI?si=LrnM-8odleXSy46_" target="_blank">Watch Video →</a>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Interactive Graphics & Web Projects</h3>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/billboard.png" alt="Billboard Hot 100 Interactive" />
-                        <!-- REPLACE images/billboard-hot-100.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Billboard Hot 100: 60+ Years of Chart History</h4>
-                        <p class="tools">R, Flourish</p>
-                        <p>Interactive data visualization showing 10 songs with the highest number of appearances on the Billboard Hot 100 chart between 1958 and 2025. Analyzed data in R and created interactive exploration tool.</p>
-                        <a href="https://public.flourish.studio/visualisation/25170417/" target="_blank">View Interactive →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/pheasants.png" alt="Ring-Necked Pheasants News Game" />
-                        <!-- REPLACE images/pheasant-game.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Ring-Necked Pheasants Interactive Game</h4>
-                        <p class="tools">Custom Illustrations, Web Development</p>
-                        <p>Interactive news experience exploring ring-necked pheasant populations in Missouri. Created three custom illustrations and designed user interaction flow to engage readers with wildlife conservation.</p>
-                        <a href="https://view.genially.com/68ee92f18e3521b26124f9eb/interactive-content-save-the-pheasant" target="_blank">Play Game →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/N_10292025shutdown.png" alt="Missouri SNAP Participation Map" />
-                        <!-- REPLACE images/snap-map-missouri.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Missouri SNAP Participation by County</h4>
-                        <p class="tools">Datawrapper</p>
-                        <p>Interactive county-level map visualizing SNAP participation rates across Missouri, revealing geographic disparities in food security.</p>
-                        <a href="https://www.columbiamissourian.com/visuals/graphics/households-across-missouri-receive-snap-benefits/html_d4b5a6ef-6879-4628-aef0-6cc607b091ba.html" target="_blank">View Map →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/wnv_cases.png" alt="South Dakota West Nile Virus Map" />
-                        <!-- REPLACE images/west-nile-sd.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>West Nile Virus Cases in South Dakota</h4>
-                        <p class="tools">Flourish</p>
-                        <p>Interactive map and data visualization for investigative story that uncovered misattributed West Nile virus cases. Story revealed a county's second-highest U.S. ranking resulted from treating neighboring county patients.</p>
-                        <a href="https://www.sdnewswatch.org/mosquito-west-nile-virus-south-dakota-rankings/" target="_blank">Read Full Story →</a>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Comprehensive Graphics Packages</h3>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/dams.png" alt="Give a Dam Story Graphics" />
-                        <!-- REPLACE images/dams-story.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Give a Dam: Experts Share Dam Basics, Concerns</h4>
-                        <p class="tools">Multiple Graphics Package</p>
-                        <p>Graphics-heavy story featuring 4+ visualizations explaining dam infrastructure, safety concerns, and environmental impacts in Missouri. Created comprehensive graphics package supporting long-form environmental journalism.</p>
-                        <a href="https://public.flourish.studio/story/3415897/" target="_blank">Read Story →</a>
-                    </div>
-                </div>
-            </div>
-
-            <h3>Charts & Illustrations</h3>
-            <div class="work-grid">
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/harrisburg_pop.png" alt="Harrisburg Population Chart" />
-                        <!-- REPLACE images/harrisburg-population.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Harrisburg Population and School District Enrollment (2000-2023)</h4>
-                        <p class="tools">Flourish</p>
-                        <p>Line chart visualizing 23 years of population and school enrollment trends in Harrisburg, revealing demographic shifts and educational capacity changes over time.</p>
-                        <a href="https://www.sdnewswatch.org/south-dakotan-population-harrisburg-tea-box-elder-sd/" target="_blank">View in Story →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/sd_origin.png" alt="Immigrant Origins Chart" />
-                        <!-- REPLACE images/immigrants-sd.png with your actual image file -->
-                    </div>
-                    <div class="work-item-content">
-                        <h4>Origin of Immigrants in South Dakota by Continent</h4>
-                        <p class="tools">Flourish</p>
-                        <p>Chart showing geographic origins of immigrant populations in South Dakota, supporting feature story on refugee resettlement and immigration patterns that resonated strongly with community.</p>
-                        <a href="https://www.sdnewswatch.org/south-dakota-immigration-refugees-lutheran-social-services-population/" target="_blank">View in Story →</a>
-                    </div>
-                </div>
-
-                <div class="work-item">
-                    <div class="work-item-image">
-                        <img src="images/aurora.png" alt="Aurora Borealis explainer" />
-                    </div>
-                    <div class="work-item-content">
-                        <h4>What causes Northern lights</h4>
-                        <p class="tools">Illustrator</p>
-                        <p>Illustration explaining the formation of aurora borealis, or Northern lights.</p>
-                        <a href="https://www.columbiamissourian.com/visuals/graphics/northern-lights-sightings-in-missouri/image_b9a78f33-15d5-4b95-bcef-905427e6224d.html" target="_blank">View in Story →</a>
-                    </div>
-                </div>
-                
-            </div>
-        </section>
-
-        <section id="skills">
-            <h2>Skills & Expertise</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h4>Design & Animation</h4>
-                    <ul>
-                        <li>Adobe Illustrator</li>
-                        <li>Adobe After Effects</li>
-                        <li>Adobe Photoshop</li>
-                        <li>Adobe InDesign</li>
-                        <li>Canva</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Data & Programming</h4>
-                    <ul>
-                        <li>R (data analysis, ggplot2)</li>
-                        <li>Statistical visualization</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>Data visualization</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Visualization Tools</h4>
-                    <ul>
-                        <li>Datawrapper</li>
-                        <li>Flourish</li>
-                        <li>Excel</li>
-                        <li>Interactive graphics</li>
-                        <li>Maps & cartography</li>
-                    </ul>
-                </div>
-
-                <div class="skill-category">
-                    <h4>Multimedia & Languages</h4>
-                    <ul>
-                        <li>Canon photography</li>
-                        <li>Mobile videography</li>
-                        <li>Ukrainian (Proficient)</li>
-                        <li>Spanish (Conversational)</li>
-                        <li>German (Conversational)</li>
-                        <li>ASL (Intermediate)</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
+  <!-- MASTHEAD -->
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="masthead-left">
+        <div class="masthead-rule"></div>
+        <h1 class="masthead-name">Mariia Novoselia</h1>
+      </div>
+      <div class="masthead-right">
+        <!-- <span class="masthead-date" id="masthead-date"></span> -->
+      </div>
     </div>
+  </header>
 
-    <footer>
-        <p>&copy; 2025 Mariia Novoselia. All rights reserved.</p>
-        <p>Built with HTML & CSS</p>
-        <a id="work-in-progress" href="./music_2025.html" target="_blank">Music</a>
-    </footer>
+  <!-- TRACK NAV -->
+  <nav class="track-nav" id="track-nav">
+    <div class="track-nav-inner">
+      <button class="track-btn active" data-target="data">Data &amp; Innovative</button>
+      <button class="track-btn" data-target="graphics">Graphics</button>
+      <button class="track-btn" data-target="news">News &amp; Feature Reporting</button>
+    </div>
+  </nav>
+
+  <div id="nav-sentinel"></div>
+
+  <!-- SKILL FILTER -->
+  <section class="filter-section">
+    <div class="filter-inner">
+      <span class="filter-label">Filter by skill</span>
+      <div class="filter-tags">
+        <button class="tag-btn" data-skill="news reporting">news reporting</button>
+        <button class="tag-btn" data-skill="feature writing">feature writing</button>
+        <button class="tag-btn" data-skill="data journalism">data journalism</button>
+        <button class="tag-btn" data-skill="graphics">graphics</button>
+        <button class="tag-btn" data-skill="animation">animation</button>
+        <button class="tag-btn" data-skill="interactive">interactive</button>
+        <button class="tag-btn" data-skill="Excel">Excel</button>
+        <button class="tag-btn" data-skill="R">R</button>
+        <button class="tag-btn" data-skill="HTML & CSS">HTML &amp; CSS</button>
+        <button class="tag-btn" data-skill="Flourish">Flourish</button>
+        <button class="tag-btn" data-skill="DataWrapper">DataWrapper</button>
+        <button class="tag-btn" data-skill="Adobe Illustrator">Adobe Illustrator</button>
+        <button class="tag-btn" data-skill="Adobe After Effects">Adobe After Effects</button>
+        <button class="tag-btn" data-skill="Adobe Photoshop">Adobe Photoshop</button>
+        <button class="tag-btn" data-skill="photography">photography</button>
+      </div>
+      <button class="filter-clear" id="filter-clear">Clear all</button>
+    </div>
+  </section>
+
+  <main class="portfolio-main" id="portfolio-main">
+
+    <!-- FLAT FILTERED GRID -->
+    <div class="flat-grid" id="flat-grid"></div>
+    <div class="flat-empty" id="flat-empty">No projects match the selected filters.</div>
+
+    <!-- ======================================================
+         TRACK 01: DATA & INNOVATIVE
+    ======================================================= -->
+    <section class="track-section" id="data">
+      <div class="track-header">
+        <span class="track-number">01</span>
+        <h2 class="track-title">Data &amp; Innovative Journalism</h2>
+        <div class="track-rule"></div>
+      </div>
+      <div class="pudding-grid" id="grid-data">
+
+        <article class="project-card" data-skills="data journalism,feature writing,graphics,Flourish,photography">
+          <div class="card-thumb"><img src="img/mosquito.jpeg" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://www.sdnewswatch.org/mosquito-west-nile-virus-south-dakota-rankings/" target="_blank">South Dakota's Mosquito War →</a></h3>
+            <p class="card-desc">An investigation into how a South Dakota county with the second-highest national rate of lethal West Nile virus 
+              shares a border with a county that has never reported a single case.</p>
+            <div class="card-tags">
+              <span class="skill-tag">data journalism</span>
+              <span class="skill-tag">feature writing</span>
+              <span class="skill-tag">graphics</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Flourish</span>
+              <span class="skill-tag">photography</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="data journalism,R,graphics,interactive">
+          <div class="card-thumb"><img src="img/shiny_map.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://investigatemidwest.org/2026/02/18/3-charts-to-better-understand-the-potential-link-between-pesticides-and-cancer/" target="_blank">Cancer Rates and Pesticide Use →</a></h3>
+            <p class="card-desc">An interactive application that lets users explore county-level data on cancer rates and pesticide use 
+              across the United States.</p>
+            <div class="card-tags">
+              <span class="skill-tag">data journalism</span>
+              <span class="skill-tag">graphics</span>
+              <span class="skill-tag">interactive</span>
+              <span class="skill-tag">R</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="data journalism,Excel,graphics,Flourish,photography,feature writing">
+          <div class="card-thumb"><img src="img/refugee.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://www.sdnewswatch.org/south-dakota-immigration-refugees-lutheran-social-services-population/" target="_blank">Immigrants in South Dakota →</a></h3>
+            <p class="card-desc">South Dakota's increase of foreign-born population over the past 12 years exceeded the national average by three times. 
+              This story offers a behind the scenes look into the refugee resettlement process based on interviews and data.</p>
+            <div class="card-tags">
+              <span class="skill-tag">data journalism</span>
+              <span class="skill-tag">feature writing</span>
+              <span class="skill-tag">graphics</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">Flourish</span>
+              <span class="skill-tag">photography</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="data journalism,graphics,HTML & CSS">
+          <div class="card-thumb"><img src="img/eurovision.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://mariianov.github.io/ADJ_final/" target="_blank">Eurovision Country Profiles →</a></h3>
+            <p class="card-desc">A data journalism project that turned 68 years of voting data into accessible fact sheets, answering 
+              the most burning questions: What is your favorite country's most successful 
+              performace? Who is that country best friends with? Is that bond mutual?</p>
+            <div class="card-tags">
+              <span class="skill-tag">data journalism</span>
+              <span class="skill-tag">graphics</span>
+              <span class="skill-tag">R</span>
+              <span class="skill-tag">HTML &amp; CSS</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="graphics,interactive">
+          <div class="card-thumb"><img src="img/pheasants.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://view.genially.com/68ee92f18e3521b26124f9eb" target="_blank">Ring-Necked Pheasants →</a></h3>
+            <p class="card-desc">Ring-necked pheasant populations are on the decline in Missouri. Through trivia, this interactive game 
+              educates users about these birds, the challenges they face and how they can be helped.</p>
+            <div class="card-tags">
+              <span class="skill-tag">interactive</span>
+              <span class="skill-tag">graphics</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- <article class="project-card" data-skills="data journalism,Excel,R">
+          <div class="card-thumb"><img src="https://placehold.co/600x380/e0e4e8/727f8a?text=Project+Image" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="#">[Project title]</a></h3>
+            <p class="card-desc">[Short 1–2 sentence description of the data story, methodology, and findings.]</p>
+            <div class="card-tags">
+              <span class="skill-tag">data journalism</span>
+              <span class="skill-tag">Excel</span>
+              <span class="skill-tag">R</span>
+            </div>
+          </div>
+        </article> -->
+
+      </div>
+    </section>
+
+
+    <!-- ======================================================
+         TRACK 02: GRAPHICS
+    ======================================================= -->
+    <section class="track-section" id="graphics">
+      <div class="track-header">
+        <span class="track-number">02</span>
+        <h2 class="track-title">Graphics</h2>
+        <div class="track-rule"></div>
+      </div>
+      <div class="stacked-grid" id="grid-graphics">
+
+        <article class="stacked-card" data-skills="graphics,Adobe Illustrator,Adobe Photoshop,DataWrapper,HTML & CSS" style="padding-bottom: 5px;">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="images/winter_sun.gif" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="melanoma.html" target="_blank">Melanoma in Missouri →</a></h3>
+              <p class="stacked-desc">A graphics-based story with gifs, maps, charts and illustrations about melanoma and its prevention. 
+                This piece originally ran in the print version of the Columbia Missourian (Jan. 15, 2026).</p>
+              <div class="card-tags"><span class="skill-tag">graphics</span></div>
+              <div class="card-tags"><span class="skill-tag">HTML &amp; CSS</span></div>
+              <div class="card-tags"><span class="skill-tag">Adobe Illustrator</span></div>
+              <div class="card-tags"><span class="skill-tag">DataWrapper</span></div>
+              <div class="card-tags"><span class="skill-tag">Adobe Photoshop</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stacked-card" data-skills="graphics,animation,Adobe Illustrator,Adobe After Effects" style="padding-top: 5px; padding-bottom: 5px;">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="img/juke_vox.png" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="https://www.youtube.com/shorts/YjLELMgideI" target="_blank">Juke Vox →</a></h3>
+              <p class="stacked-desc">A dynamic logo, designed and animated for Vox Magazine, part of the Missouri News Network.</p>
+              <div class="card-tags">
+                <span class="skill-tag">graphics</span>
+                <span class="skill-tag">animation</span>
+                <span class="skill-tag">Adobe Illustrator</span>
+                <span class="skill-tag">Adobe After Effects</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stacked-card" data-skills="graphics,DataWrapper" style="padding-top: 5px; padding-bottom: 5px;">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="img/snap-cut.png" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="https://www.columbiamissourian.com/visuals/graphics/households-across-missouri-receive-snap-benefits/html_d4b5a6ef-6879-4628-aef0-6cc607b091ba.html" target="_blank">SNAP in Missouri →</a></h3>
+              <p class="stacked-desc">A county-level map of Missouri, showing which communities benefit from the SNAP program the most. 
+                The map was created to demonstrate which parts of the state would be impacted the most during the 2025 government 
+                shutdown, which led to a disruption of SNAP benefits.<br>A static version of this map ran in the print version of 
+                the Columbia Missourian (Oct. 29, 2025).</p>
+              <div class="card-tags">
+                <span class="skill-tag">graphics</span>
+                <span class="skill-tag">DataWrapper</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stacked-card" data-skills="graphics,Adobe Illustrator" style="padding-top: 5px; padding-bottom: 5px;">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="img/aurora.png" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="https://www.columbiamissourian.com/visuals/graphics/northern-lights-sightings-in-missouri/image_b9a78f33-15d5-4b95-bcef-905427e6224d.html" target="_blank">Aurora Borealis →</a></h3>
+              <p class="stacked-desc">An illustration explainer of how aurora borealis, or Northern lights, form.</p>
+              <div class="card-tags">
+                <span class="skill-tag">graphics</span>
+                <span class="skill-tag">Adobe Illustrator</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="stacked-card" data-skills="graphics,Adobe Illustrator" style="padding-top: 5px;">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="img/nws.png" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="https://www.columbiamissourian.com/visuals/graphics/new-world-screwworm-flies-approach-united-states/pdf_c9337306-07fc-4235-8da2-f3fd19088e79.html" target="_blank">New World Screwworm Flies →</a></h3>
+              <p class="stacked-desc">A country-level map of Central and North America, showing the path of New World Screwworm flies. These are 
+                parasitic flies that can fatally affact livestock and infect humans.</p>
+              <div class="card-tags">
+                <span class="skill-tag">graphics</span>
+                <span class="skill-tag">Adobe Illustrator</span>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- <article class="stacked-card" data-skills="Adobe Illustrator,DataWrapper">
+          <div class="stacked-link">
+            <div class="stacked-image"><img src="https://placehold.co/900x500/e0e8e4/6e8a7a?text=Graphic" alt="" /></div>
+            <div class="stacked-meta">
+              <h3 class="stacked-title"><a href="#">[Graphic title]</a></h3>
+              <p class="stacked-desc">[Description of the piece — what it depicts, the context it ran in, and any notable design choices.]</p>
+              <div class="card-tags">
+                <span class="skill-tag">Adobe Illustrator</span>
+                <span class="skill-tag">DataWrapper</span>
+              </div>
+            </div>
+          </div>
+        </article> -->
+
+      </div>
+    </section>
+
+    <!-- ======================================================
+         TRACK 03: NEWS & FEATURE REPORTING
+    ======================================================= -->
+    <section class="track-section" id="news">
+      <div class="track-header">
+        <span class="track-number">03</span>
+        <h2 class="track-title">News &amp; Feature Reporting</h2>
+        <div class="track-rule"></div>
+      </div>
+      <div class="pudding-grid" id="grid-news">
+
+        <article class="project-card" data-skills="feature writing">
+          <div class="card-thumb"><img src="img/ai_healthcare.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://www.columbiamissourian.com/innovations/science_and_technology/boone-county-hospitals-embrace-ai-to-increase-efficiency-reduce-burnout/article_01cb9678-c385-4e5e-98d4-bec2ff2286fa.html" target="_blank">AI in Missouri Healthcare →</a></h3>
+            <p class="card-desc">A feature about how hospitals in Boone County, Missouri, are using artificial intelligence to increase 
+              their efficiency and reduce physician burnout.<br> This piece originally ran in the "Innovations in AI" special section of the Columbia 
+              Missourian.</p>
+            <div class="card-tags">
+              <span class="skill-tag">feature writing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="feature writing,news reporting">
+          <div class="card-thumb"><img src="https://bloximages.newyork1.vip.townnews.com/columbiamissourian.com/content/tncms/assets/v3/editorial/9/a1/9a16d9ea-a2ec-11ef-ba8e-7f05325f84c0/67369c7f48b8f.image.jpg?resize=750%2C500" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://www.columbiamissourian.com/news/local/i-dont-want-to-be-a-creep-missouri-organization-raises-awareness-about-giving-women-cpr/article_a08a8710-a2c7-11ef-a8f8-bb70b4483f96.html" target="_blank">CPR for Women →</a></h3>
+            <p class="card-desc">Cardiovascular disease is a leading cause of death for women, yet they are less likely than men to 
+              receive CPR from a bystander. This story covers a new local initiative that uses anatomically accurate female mannequins 
+              to teach CPR and increase the cardiac arrest survival rates for women.</p>
+            <div class="card-tags">
+              <span class="skill-tag">news reporting</span>
+              <span class="skill-tag">feature writing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="feature writing,photography,graphics">
+          <div class="card-thumb"><img src="img/cybher.jpeg" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://www.sdnewswatch.org/cybher-cybersecurity-camp-girls-dakota-state-university-madison/" target="_blank"">Girls-Only Cybersecurity Camp →</a></h3>
+            <p class="card-desc">A feature story about a cybersecurity camp for middle school girls, which aims to bridge the gender gap in STEM. The 
+              piece includes original photography and graphics.</p>
+            <div class="card-tags">
+              <span class="skill-tag">feature writing</span>
+              <span class="skill-tag">photography</span>
+              <span class="skill-tag">graphics</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="news reporting">
+          <div class="card-thumb"><img src="https://chqdaily.com/wp-content/uploads/2023/07/071923_VerticalProfilers_CL_08.jpg" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://chqdaily.com/2023/07/multiyear-partnership-upgrades-data-collection-on-lake-with-deployment-of-new-vertical-profilers/" target="_blank">Vertical Profilers on Chautauqua Lake →</a></h3>
+            <p class="card-desc">This news story covers the installation of "state of the art" vertical profilers and explains how 
+              they help scientists study lake health.</p>
+            <div class="card-tags">
+              <span class="skill-tag">news reporting</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="feature writing">
+          <div class="card-thumb"><img src="https://chqdaily.com/wp-content/uploads/2023/08/080923_Monarchs_HGB_01.jpg" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://chqdaily.com/2023/08/with-loving-aid-from-chautauquas-gardens-grounds-team-monarch-butterflies-prepare-for-long-migration/" target="_blank">Monarch Butterflies →</a></h3>
+            <p class="card-desc">Betsy Burgeson has been raising monarch butterflies since she could walk. In this feature, she takes readers 
+              through the life cycle of a monarch and explains how gardeners can help them thrive.</p>
+            <div class="card-tags">
+              <span class="skill-tag">feature writing</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="project-card" data-skills="news reporting">
+          <div class="card-thumb"><img src="img/bowls.png" alt="" /></div>
+          <div class="card-body">
+            <h3 class="card-title"><a href="https://bgdailynews.com/2022/07/27/empty-bowls-fundraiser-returns-in-september/" target="_blank">Empty Bowls →</a></h3>
+            <p class="card-desc">This news story previews an annual event in Bowling Green, Kentucky. Empty Bowls aims to combat hunger 
+              in the community by selling lunch in locally made ceramic bowls.</p>
+            <div class="card-tags">
+              <span class="skill-tag">news reporting</span>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-nav">
+        <span class="footer-nav-label">Tracks</span>
+        <button class="footer-track-btn" data-target="data">Data &amp; Innovative</button>
+        <button class="footer-track-btn" data-target="graphics">Graphics</button>
+        <button class="footer-track-btn" data-target="news">News &amp; Feature Reporting</button>
+      </div>
+      <div class="footer-about">
+        <span class="footer-nav-label">About</span>
+        <p class="footer-about-text">My name is Mariia Novoselia. I am a data journalist and innovation enthusiast. I have reported 
+          and produced work across multiple newsrooms, with a particular focus on making complex information accessible and meaningful. 
+          I am a firm believer in newsrooms empowering their communities and innovation helping journalists with this mission.</p>
+      </div>
+    </div>
+    <div class="footer-base">
+      <span>Mariia Novoselia · 2026</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

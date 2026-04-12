@@ -1,0 +1,627 @@
+/* ============================================================
+   JOURNALISM PORTFOLIO — style.css
+   Aesthetic: Editorial broadsheet meets modern digital journalism
+   Fonts: Playfair Display (display) + DM Sans (body)
+   ============================================================ */
+
+/* ---- Reset & Base ----------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --ink:        #1a1814;
+  --ink-2:      #4a4540;
+  --ink-3:      #8a8178;
+  --rule:       #d4cfc7;
+  --paper:      #f7f4ef;
+  --paper-2:    #eeeae3;
+  --paper-3:    #e5e0d8;
+  --accent:     #2d5a3d;
+  --accent-2:   #d4e6da;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'DM Sans', system-ui, sans-serif;
+  --max-w:      1200px;
+  --pad-x:      clamp(1.25rem, 4vw, 3rem);
+  --transition: 0.2s ease;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+img { display: block; width: 100%; height: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { font-family: var(--font-body); cursor: pointer; border: none; background: none; }
+
+/* ---- Masthead --------------------------------------------- */
+.masthead {
+  border-bottom: 2px solid var(--ink);
+  padding: 2.5rem var(--pad-x) 1.75rem;
+  background: var(--paper);
+  position: relative;
+}
+
+.masthead::before {
+  content: '';
+  display: block;
+  height: 4px;
+  background: var(--ink);
+  position: absolute;
+  top: 0; left: 0; right: 0;
+}
+
+.masthead-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.masthead-rule {
+  width: 2.5rem;
+  height: 3px;
+  background: var(--accent);
+  margin-bottom: 0.75rem;
+}
+
+.masthead-name {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+}
+
+.masthead-bio {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  margin-top: 0.5rem;
+  letter-spacing: 0.03em;
+}
+
+.masthead-right {
+  text-align: right;
+  flex-shrink: 0;
+}
+
+.masthead-date {
+  font-size: 0.75rem;
+  color: var(--ink-3);
+  font-family: var(--font-body);
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ---- Track Nav -------------------------------------------- */
+.track-nav {
+  background: var(--paper-2);
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  transition: box-shadow 0.2s;
+}
+
+.track-nav.is-stuck {
+  box-shadow: 0 2px 12px rgba(26,24,20,0.08);
+}
+
+.track-nav-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.track-nav-inner::-webkit-scrollbar { display: none; }
+
+.track-btn {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  padding: 1rem 1.25rem;
+  border-bottom: 2px solid transparent;
+  white-space: nowrap;
+  transition: color var(--transition), border-color var(--transition);
+  flex-shrink: 0;
+}
+
+.track-btn:hover { color: var(--ink); }
+
+.track-btn.active {
+  color: var(--ink);
+  border-bottom-color: var(--accent);
+}
+
+/* ---- Filter Section --------------------------------------- */
+.filter-section {
+  background: var(--paper-2);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.9rem var(--pad-x);
+}
+
+.filter-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.filter-label {
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin-right: 0.25rem;
+  flex-shrink: 0;
+}
+
+.filter-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  flex: 1;
+}
+
+.tag-btn {
+  font-size: 0.825rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  padding: 0.3rem 0.7rem;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  background: var(--paper);
+  transition: background var(--transition), color var(--transition), border-color var(--transition);
+}
+
+.tag-btn:hover {
+  border-color: var(--accent);
+  color: var(--ink);
+  background: var(--accent-2);
+}
+
+.tag-btn.active {
+  background: var(--accent);
+  color: var(--paper);
+  border-color: var(--accent);
+}
+
+.filter-clear {
+  font-size: 0.7rem;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  padding: 0.3rem 0.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--transition);
+  flex-shrink: 0;
+}
+
+.filter-clear.visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ---- Portfolio Main --------------------------------------- */
+.portfolio-main {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--pad-x);
+}
+
+/* ---- Track Section Header --------------------------------- */
+.track-section {
+  padding: 4rem 0 2rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.track-section:last-child { border-bottom: none; }
+
+.track-header {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.track-number {
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--ink-3);
+}
+
+.track-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 400;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.track-rule {
+  height: 1px;
+  background: var(--rule);
+  flex: 1;
+  width: 100%;
+}
+
+/* ---- Pudding-style Card Grid ------------------------------ */
+.pudding-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+}
+
+.project-card {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  transition: background var(--transition);
+  position: relative;
+}
+
+.project-card:hover { background: var(--paper-2); }
+
+.project-card.hidden { display: none; }
+
+.card-thumb {
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.card-thumb img {
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .card-thumb img {
+  transform: scale(1.03);
+}
+
+.card-body {
+  padding: 1.25rem 1.25rem 1.5rem;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+/* Stretch the title link across the entire card */
+.card-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.card-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.card-title a:hover { text-decoration: underline; }
+
+.card-desc {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.6;
+  margin-bottom: 0.875rem;
+}
+
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+}
+
+.skill-tag {
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-2);
+  padding: 0.2rem 0.5rem;
+  border: 1px solid var(--rule);
+  border-radius: 1px;
+  background: var(--paper-2);
+}
+
+/* ---- Filtered flat grid ----------------------------------- */
+.portfolio-main.is-filtered .track-section {
+  padding-top: 0;
+  border-bottom: none;
+}
+
+.portfolio-main.is-filtered .track-header {
+  display: none;
+}
+
+.portfolio-main.is-filtered .track-section + .track-section {
+  margin-top: 0;
+}
+
+/* When filtering, collapse section wrappers and show one unified grid */
+.portfolio-main.is-filtered {
+  display: block;
+}
+
+.flat-grid {
+  display: none;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0.75rem;
+  padding: 0.75rem;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  margin-top: 2rem;
+}
+
+.flat-grid.visible {
+  display: grid;
+}
+
+/* Stacked cards inside the flat grid span full width to preserve their layout */
+.flat-grid .stacked-card {
+  grid-column: 1 / -1;
+  border-bottom: 2px solid var(--rule);
+}
+
+.flat-grid .stacked-card:last-child {
+  border-bottom: none;
+}
+
+.flat-empty {
+  display: none;
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  font-style: italic;
+  padding: 2rem 0;
+  margin-top: 2rem;
+}
+
+.flat-empty.visible { display: block; }
+
+/* Hide all track grids and stacked grids when filtering */
+.portfolio-main.is-filtered .pudding-grid,
+.portfolio-main.is-filtered .stacked-grid {
+  display: none;
+}
+
+/* ---- Empty state ------------------------------------------ */
+.track-empty {
+  display: none;
+  font-size: 0.85rem;
+  color: var(--ink-3);
+  font-style: italic;
+  padding: 2rem 0;
+}
+
+.track-empty.visible { display: block; }
+
+/* ---- Graphics: Stacked Layout ----------------------------- */
+.stacked-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--rule);
+}
+
+.stacked-card {
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  transition: background var(--transition);
+}
+
+.stacked-card:last-child { border-bottom: none; }
+.stacked-card:hover { background: var(--paper-2); }
+.stacked-card.hidden { display: none; }
+
+.stacked-link {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr;
+  min-height: 280px;
+  position: relative;
+}
+
+/* Stretch the title link across the entire stacked card */
+.stacked-title a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.stacked-title a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.stacked-title a:hover { text-decoration: underline; }
+
+.stacked-image {
+  overflow: hidden;
+  background: var(--paper-3);
+}
+
+.stacked-image img {
+  height: 100%;
+  transition: transform 0.4s ease;
+}
+
+.stacked-card:hover .stacked-image img {
+  transform: scale(1.02);
+}
+
+.stacked-meta {
+  padding: 2rem 2rem 2rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.75rem;
+}
+
+.stacked-title {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 600;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.stacked-desc {
+  font-size: 0.85rem;
+  color: var(--ink-2);
+  font-weight: 300;
+  line-height: 1.65;
+}
+
+.stacked-versions {
+  font-size: 0.8rem;
+  color: var(--ink-3);
+}
+
+.stacked-versions a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.stacked-versions a:hover {
+  text-decoration: underline;
+}
+
+
+/* ---- Footer ----------------------------------------------- */
+.site-footer {
+  margin-top: 5rem;
+  border-top: 2px solid var(--ink);
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3rem var(--pad-x) 1.5rem;
+}
+
+.footer-inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  padding-bottom: 2.5rem;
+  border-bottom: 1px solid rgba(247, 244, 239, 0.15);
+}
+
+.footer-nav-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(247, 244, 239, 0.4);
+  margin-bottom: 1rem;
+}
+
+.footer-track-btn {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(247, 244, 239, 0.75);
+  padding: 0.3rem 0;
+  text-align: left;
+  transition: color var(--transition);
+}
+
+.footer-track-btn:hover { color: var(--paper); }
+
+.footer-nav {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-about-text {
+  font-size: 0.875rem;
+  font-weight: 300;
+  color: rgba(247, 244, 239, 0.75);
+  line-height: 1.75;
+}
+
+.footer-base {
+  max-width: var(--max-w);
+  margin: 1.5rem auto 0;
+  font-size: 0.7rem;
+  color: rgba(247, 244, 239, 0.3);
+  letter-spacing: 0.06em;
+}
+
+/* ---- Responsive ------------------------------------------- */
+@media (max-width: 768px) {
+  .masthead-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .masthead-right { display: none; }
+
+  .track-header {
+    grid-template-columns: auto 1fr;
+  }
+
+  .track-rule { display: none; }
+
+  .stacked-link {
+    grid-template-columns: 1fr;
+  }
+
+  .stacked-image {
+    aspect-ratio: 16 / 9;
+    height: auto;
+  }
+
+  .stacked-meta {
+    padding: 1.25rem;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .pudding-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .track-btn {
+    font-size: 0.65rem;
+    padding: 0.875rem 0.875rem;
+  }
+}
